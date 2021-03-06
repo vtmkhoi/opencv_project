@@ -3,7 +3,7 @@ face_cascade=cv2.CascadeClassifier('/home/pi/khoi_workspace/haarcascade_frontfac
 eye_cascade=cv2.CascadeClassifier('/home/pi/khoi_workspace/haarcascade_eye.xml')
 
 #ReadImage
-img=cv2.imread("dog01.jpg")
+img=cv2.imread("aaa.jpg")
 gray_img=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
 #Finding face in the image by using file .XML 
@@ -15,7 +15,7 @@ print(faces)
 for x,y,w,h in face:
     roi_gray=gray_img[y:y+h, x:x+w]
     roi_color = img[y:y+h, x:x+w]
-    img = cv2.rectangle(img, (x,y),(x+ư,y+h),(255,0,0),2)
+    img=cv2.rectangle(img, (x,y),(x+ư,y+h),(255,0,0),2)
     eyes=eye_cascade.detectMultiScale(roi_gray)
     for(ex, ey, ew, eh) in eyes:
         cv2.rectangle(roi_color,(ex,ey), (ex+ew, ey+eh), (0,255,0),2)
